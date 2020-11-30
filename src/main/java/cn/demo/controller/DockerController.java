@@ -15,7 +15,7 @@ import java.sql.DriverManager;
  **/
 @RestController
 public class DockerController {
-    @GetMapping("/add")
+    @GetMapping("/show")
     public String show(){
         StringBuilder stringBuilder=new StringBuilder();
         stringBuilder.append("Docker success");
