@@ -1,0 +1,77 @@
+version: "3.8"
+services:
+  eureka:
+    build: /usr/local/aprilApp/eureka-server
+    image: eureka-server
+    container_name: eureka
+    ports:
+    - "7001:7001"
+  provider:
+    build: /usr/local/aprilApp/db-provider
+    image: provider-server
+    container_name: provider
+    ports:
+    - "8001:8001"
+  consumer:
+    build: /usr/local/aprilApp/db-consumer
+    image: consumer-server
+    container_name: consumer
+    ports:
+    - "8002:8002"
+  redis:
+    build: /usr/local/soft/Redis/
+    mem_limit: 300M
+    image: redis-server
+    container_name: redis
+    ports:
+     - "6379:6379"
+  #3-1.Elasticsearch
+  elasticsearch:
+    build: /usr/local/soft/Elasticsearch/
+    mem_limit: 1024M
+    image: elasticsearch-server
+    container_name: elasticsearch
+    ports:
+     - "9200:9200"
+     - "9300:9300"
+  #3-2.Logstash
+  logstash:
+    build: /usr/local/soft/Logstash/
+    mem_limit: 1020M
+    image: logstash-server
+    container_name: logstash
+  #3-3.Kibana
+  kibana:
+    build: /usr/local/soft/Kibana/
+    mem_limit: 300M
+    image: kibana-server
+    container_name: kibana
+    ports:
+     - "5601:5601"
+  #4.Kafka
+  kafka:
+    build: /usr/local/soft/Kafka/
+    mem_limit: 300M
+    image: kafka-server
+    container_name: kafka
+    ports:
+     - "9092:9092"
+
+  #6.MySQL
+  mysql:
+    build: /usr/local/soft/MySQL/
+    mem_limit: 500M
+    image: mysql-server
+    container_name: mysql
+    ports:
+     - "3306:3306"
+
+  #8.RabbitMQ
+  rabbitmq:
+    build: /usr/local/soft/RabbitMQ/
+    mem_limit: 300M
+    image: rabbitmq-server
+    container_name: rabbitmq
+    ports:
+     - "15672:15672"
+     - "5672:5672"

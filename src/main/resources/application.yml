@@ -1,0 +1,11 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: docker-test
+  datasource:
+    url: jdbc:mysql://mysql01:3306/a?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ok
+    type: com.alibaba.druid.pool.DruidDataSource
